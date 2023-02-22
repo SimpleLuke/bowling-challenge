@@ -6,12 +6,12 @@ describe("Frame", () => {
     frame = new Frame();
   });
 
-  it("returns the number of pins for first try", () => {
-    expect(frame.showFirstKnock()).toEqual(0);
+  it("returns the number of pins before first try", () => {
+    expect(frame.showFirstKnock()).toEqual(undefined);
   });
 
-  it("returns the number of pins for second try", () => {
-    expect(frame.showSecondKnock()).toEqual(0);
+  it("returns the number of pins before second try", () => {
+    expect(frame.showSecondKnock()).toEqual(undefined);
   });
 
   it("modifies the firstKnock pins number", () => {

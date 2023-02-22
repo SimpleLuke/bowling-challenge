@@ -1,7 +1,7 @@
 class Frame {
   constructor() {
-    this.firstKnock = 0;
-    this.secondKnock = 0;
+    this.firstKnock;
+    this.secondKnock;
     this.isStrikes = false;
     this.isSpares = false;
     this.baseScore;
@@ -27,14 +27,14 @@ class Frame {
   }
 
   checkIsStrikes() {
-    if (this.firstKnock == 10 && this.secondKnock == 0) {
+    if (this.firstKnock === 10 && this.secondKnock === undefined) {
       this.isStrikes = true;
       return this.isStrikes;
     }
   }
 
   checkIsSpares() {
-    if (this.firstKnock + this.secondKnock == 10) {
+    if (this.firstKnock + this.secondKnock === 10) {
       this.isSpares = true;
       return this.isSpares;
     }
