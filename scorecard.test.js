@@ -8,13 +8,13 @@ describe("ScoreCard", () => {
   let mockFrame;
   beforeEach(() => {
     Frame.mockClear();
-    scorecard = new ScoreCard();
     mockFrame = new Frame();
+    scorecard = new ScoreCard(mockFrame);
   });
 
   it("adds a Frame object into the frames array", () => {
     mockFrame.showFirstKnock.mockImplementation(() => 10);
-    scorecard.addFrame(mockFrame);
+    scorecard.addFrame();
     expect(scorecard.showFrames().length).toEqual(1);
     expect(scorecard.showFrames()[0].showFirstKnock()).toEqual(10);
   });

@@ -1,19 +1,20 @@
 const Frame = require("./frame");
 
 class ScoreCard {
-  constructor() {
+  constructor(frameModel) {
     this.currentRoll = 1;
     this.frames = [];
     this.scores = new Array(10).fill([null, null]);
     this.totalScore = 0;
+    this.frameModel = frameModel;
   }
 
   showCurrentRoll() {
     return this.currentRoll;
   }
 
-  addFrame(frame) {
-    this.frames.push(frame);
+  addFrame() {
+    this.frames.push(this.frameModel);
   }
 
   showFrames() {
@@ -37,6 +38,7 @@ class ScoreCard {
     if (currentFrame.showFirstKnock() && currentFrame.showSecondKnock()) {
       currentFrame.checkIsStrikes(); //check and change to true if strikes
       currentFrame.checkIsSpares(); //check and changes to true if spares
+      this.addFrame(this.frameModel);
     }
 
     if (currentFrame.checkIsStrikes()) {
@@ -55,6 +57,7 @@ class ScoreCard {
 }
 
 module.exports = ScoreCard;
+// export default ScoreCard;
 
 // const scoreCard = new ScoreCard();
 // const frame = new Frame();
