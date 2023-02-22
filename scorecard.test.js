@@ -59,4 +59,19 @@ describe("ScoreCard", () => {
     scorecard.updateFrame(1, 10);
     expect(scorecard.showCurrentRoll()).toEqual(2);
   });
+
+  it("generates an array of score", () => {
+    mockFrame.showFirstKnock.mockImplementation(() => 7);
+    mockFrame.showSecondKnock.mockImplementation(() => 2);
+    scorecard.addFrame(mockFrame);
+    scorecard.updateFrame(1, 7);
+    scorecard.updateFrame(1, 2);
+    expect(scorecard.generateScore()[0][0]).toEqual(7);
+    expect(scorecard.generateScore()[0][1]).toEqual(2);
+    scorecard.addFrame(mockFrame);
+    scorecard.updateFrame(1, 7);
+    scorecard.updateFrame(1, 2);
+    expect(scorecard.generateScore()[1][0]).toEqual(7);
+    expect(scorecard.generateScore()[1][1]).toEqual(2);
+  });
 });
